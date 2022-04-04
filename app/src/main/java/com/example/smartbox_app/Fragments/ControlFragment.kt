@@ -54,9 +54,10 @@ class ControlFragment : Fragment() {
         val queue = Volley.newRequestQueue(appContext)
 
         modeSelector.setOnCheckedChangeListener { buttonView, isChecked ->
+            val url = host + "/control_auto/" + deveui
             if (isChecked) {
                 Log.d("Control", "Send auto control")
-                //Toast
+                Toast.makeText(appContext,"Send auto control",Toast.LENGTH_SHORT).show()
                 startButton.isEnabled = false
                 stopButton.isEnabled = false
                 modeSelector.text = "Auto"
@@ -68,23 +69,23 @@ class ControlFragment : Fragment() {
                 val jsonModeAuto = "{\"mode\":\"auto\",\"activation_hour\":\"$activationHour\",\"activation_minute\":" +
                         "\"$activationMinute\",\"periodic\":\"$periodicMode\",\"repeat_days\":\"$repeatDays\"}"
                 val jsonObject = JSONObject(jsonModeAuto)
-                createRequest("https://hookb.in/kxXgGwR1E3UBjzggWlyN", queue, jsonObject)
+                createRequest(url, queue, jsonObject)
             } else {
                 Log.d("Control", "Send manual control")
-                //Toast
+                Toast.makeText(appContext,"Send manual control",Toast.LENGTH_SHORT).show()
                 startButton.isEnabled = true
                 stopButton.isEnabled = true
                 modeSelector.text = "Manual"
 
                 val jsonModeManual = "{\"mode\":\"manual\"}"
                 val jsonObject = JSONObject(jsonModeManual)
-                val url = host + "/control_auto/" + deveui
                 createRequest(url, queue, jsonObject)
             }
         }
 
         startButton.setOnClickListener {
             Log.d("Control", "Start Pump")
+            Toast.makeText(appContext,"Send Start Pump",Toast.LENGTH_SHORT).show()
             val jsonStartPump = "{\"start\":\"true\"}}"
             val jsonObject = JSONObject(jsonStartPump)
             val url = host + "/start_pump/" + deveui
@@ -93,6 +94,7 @@ class ControlFragment : Fragment() {
 
         stopButton.setOnClickListener {
             Log.d("Control", "Stop Pump")
+            Toast.makeText(appContext,"Send Stop Pump",Toast.LENGTH_SHORT).show()
             val jsonStopPump = "{\"start\":\"false\"}}"
             val jsonObject = JSONObject(jsonStopPump)
             val url = host + "/stop_pump/" + deveui
