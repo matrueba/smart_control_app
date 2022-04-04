@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">smartbox app</string>
+    <string name="indicators_tab">Info Riego</string>
+    <string name="controls_tab">Control Riego</string>
+    <string name="air_temperature_text">Temperatura Aire</string>
+    <string name="air_humidity_text">Humedad Aire</string>
+    <string name="ground_humidity_text">Humedad Suelo</string>
+    <string name="water_level_text">Nivel Agua</string>
+    <string name="air_temperature_value">0ºC</string>
+    <string name="air_humidity_value">0%</string>
+    <string name="ground_humidity_value">0%</string>
+    <string name="water_level_value">0%</string>
+    <string name="pump_indicator_text">Estado Bomba</string>
+    <string name="pump_indicator">Desactivado</string>
+    <string name="pump_time_text">Tiempo de riego</string>
+    <string name="pump_time">00:00:00</string>
+
+    <string name="auto_mode_text">Habilitar modo auto</string>
+    <string name="manuaL_mode_text">Control modo manual</string>
+    <string name="auto_mode_value">Manual</string>
+    <string name="start_button">START</string>
+    <string name="stop_button">STOP</string>
+    <string name="periodic_mode_text">Habilitar modo periodico</string>
+    <string name="periodic_mode_value">OFF</string>
+    <string name="activation_time">Hora de activación automática</string>
+    <string name="periodic_delay">Periodo de repetición (días)</string>
+
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
