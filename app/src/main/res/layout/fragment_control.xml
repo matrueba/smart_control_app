@@ -128,6 +128,7 @@
 
             <TimePicker
                 android:id="@+id/activation_time"
+                style="@android:style/Widget.Material.Light.TimePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
@@ -200,24 +201,26 @@
 
             <SeekBar
                 android:id="@+id/repeat_days"
-                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                style="@android:style/Widget.Material.SeekBar.Discrete"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:max="30"
+                android:layout_height="32dp"
                 android:layout_span="2"
+                android:max="30"
                 android:progress="3" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/repeatDaysIndicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_span="2"
-                android:text="TextView" />
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:layout_span="2" />
         </TableRow>
 
 

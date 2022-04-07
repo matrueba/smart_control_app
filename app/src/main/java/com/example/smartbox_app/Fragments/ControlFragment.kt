@@ -47,11 +47,18 @@ class ControlFragment : Fragment() {
         val activationTimeSelector = viewLayout.findViewById<TimePicker>(R.id.activation_time)
         val periodicModeSelector = viewLayout.findViewById<Switch>(R.id.periodic_mode_switch)
         val repeatDaysSelector = viewLayout.findViewById<SeekBar>(R.id.repeat_days)
+        val repeatDaysIndicator = viewLayout.findViewById<TextView>(R.id.repeatDaysIndicator)
         val appContext = requireContext().applicationContext
 
         val host = getNetConfig(appContext)?.getProperty("http_host")
         val deveui = getNetConfig(appContext)?.getProperty("deveui")
         val queue = Volley.newRequestQueue(appContext)
+
+        // initialize seek bar repeat days
+        repeatDaysIndicator.text = 1.toString()
+        val defaultDays = repeatDaysIndicator.text.toString().toInt()
+        repeatDaysSelector.setProgress(defaultDays)
+        activationTimeSelector.setIs24HourView(true)
 
         modeSelector.setOnCheckedChangeListener { buttonView, isChecked ->
             val url = host + "/control_auto/" + deveui
@@ -100,6 +107,14 @@ class ControlFragment : Fragment() {
             val url = host + "/stop_pump/" + deveui
             createRequest(url, queue, jsonObject)
         }
+
+        repeatDaysSelector.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(p0: SeekBar?, currentValue: Int, p2: Boolean) {
+                repeatDaysIndicator.text = currentValue.toString()
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+        })
         return viewLayout
     }
 
